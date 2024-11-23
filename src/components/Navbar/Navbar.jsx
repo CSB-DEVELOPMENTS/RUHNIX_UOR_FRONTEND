@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { axiosFetch } from "../../utils";
@@ -18,16 +18,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
   const [isLoading, setIsLoading] = useState(false);
+  const panelRef = useRef(null); // Create a ref for the panel
 
   useEffect(() => {
     (async () => {
       setIsLoading(true);
       try {
         const { data } = await axiosFetch.get('/auth/me');
-        setUser(data.user);
+        console.log(data);
+        setUser(data.user);       
       }
       catch({ response }) {
-        localStorage.removeItem('user');
         console.log(response.data.message);
       }
       finally {
@@ -44,6 +45,20 @@ const Navbar = () => {
     window.addEventListener("scroll", isActive);
     return () => {
       window.removeEventListener("scroll", isActive);
+    };
+  }, []);
+
+  // Function to detect clicks outside the panel
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (panelRef.current && !panelRef.current.contains(event.target)) {
+        setShowPanel(false); // Close the panel if clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -89,7 +104,6 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await axiosFetch.post("/auth/logout");
-      localStorage.removeItem('user');
       setUser(null);
       navigate("/");
     } catch ({ response }) {
@@ -112,7 +126,11 @@ const Navbar = () => {
             <span>Ruhnix Business</span>
             <span>Explore</span>
             <span>English</span>
-            {!user?.isSeller && <span>Become a Seller</span>}
+            {!user?.isSeller && (
+              <Link to="/StartSelling" className="link">
+                <span>Become a Seller</span>
+              </Link>
+            )}
           </div>
           {isLoading ? (
             <Loader size={35} />
@@ -135,11 +153,27 @@ const Navbar = () => {
                 </button>
               )}
               {user && (
-                <div className="user" onClick={() => setShowPanel(!showPanel)}>
+                <div
+                  className="user"
+                  onClick={() => setShowPanel(!showPanel)}
+                  ref={panelRef} // Attach the ref to the panel container
+                >
                   <img src={user.image || "/media/noavatar.png"} />
                   <span>{user?.username}</span>
                   {showPanel && (
                     <div className="options">
+                      <Link className="link" to="/profile">
+                        Profile
+                      </Link>
+                      <Link className="link" to="/messages">
+                        Messages
+                      </Link>
+                      <Link className="link" to="/orders">
+                        Orders
+                      </Link>
+                      <Link className="link" to="/refer-a-friend">
+                        Refer a Friend
+                      </Link>
                       {user?.isSeller && (
                         <>
                           <Link className="link" to="/my-gigs">
@@ -150,12 +184,34 @@ const Navbar = () => {
                           </Link>
                         </>
                       )}
-                      <Link className="link" to="/orders">
-                        Orders
+                      <Link className="link" to="/become-a-seller">
+                        Become a Seller
                       </Link>
-                      <Link className="link" to="/messages">
-                        Messages
+                      <Link className="link" to="/settings">
+                        Settings
                       </Link>
+                      <Link className="link" to="/billing">
+                        Billing and payments
+                      </Link>
+                      <div className="link language-currency">
+                        <span>English</span>
+                        <span>US$ USD</span>
+                      </div>
+                      <Link className="link" to="/help">
+                        Help & support
+                      </Link>
+                      <hr />
+                      <div className="exclusive-features">
+                        <Link className="link" to="/invite-team">
+                          Invite your team
+                        </Link>
+                        <Link className="link" to="/hire-hourly">
+                          Hire on an hourly basis
+                        </Link>
+                        <Link className="link" to="/fiverr-credits">
+                          Earn Fiverr credits
+                        </Link>
+                      </div>
                       <Link className="link" to="/" onClick={handleLogout}>
                         Logout
                       </Link>

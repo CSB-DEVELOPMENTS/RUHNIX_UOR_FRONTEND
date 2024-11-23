@@ -3,11 +3,16 @@ import axios from "axios";
 const generateImageURL = async (image) => {
   const file = new FormData();
   file.append("file", image);
-  file.append("upload_preset", process.env.CLOUDINARY_PRESET);
 
+  // Replace the Cloudinary URL with your own Express backend endpoint
   const { data } = await axios.post(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ENV}/image/upload`,
-    file
+    `http://localhost:5000/upload`, // Backend URL
+    file,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data", // Ensure file is sent as form data
+      },
+    }
   );
   return data;
 };
