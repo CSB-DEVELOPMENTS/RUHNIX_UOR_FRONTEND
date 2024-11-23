@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { axiosFetch } from '../../utils';
 import './Gigs.scss';
 
+
+
 const Gigs = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [sortBy, setSortBy] = useState('sales');
@@ -13,8 +15,12 @@ const Gigs = () => {
   const maxRef = useRef();
   const { search } = useLocation();
 
+  // Create a URLSearchParams object
+  const params = new URLSearchParams(search);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    setCategory(params.get('category'));
   }, []);
 
 
@@ -23,7 +29,6 @@ const Gigs = () => {
     queryFn: () =>
       axiosFetch.get(`/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sortBy}`)
         .then(({ data }) => {
-          setCategory(data[0].category);
           return data;
         })
         .catch((error) => {
@@ -44,13 +49,12 @@ const Gigs = () => {
   const handlePriceFilter = () => {
     refetch();
   }
-
   return (
     <div className='gigs'>
       <div className="container">
-        <span className="breadcrumbs">FIVERR {category[0]?.toUpperCase() + category.slice(1)}</span>
+        <span className="breadcrumbs">Ruhnix {category[0]?.toUpperCase() + category.slice(1)}</span>
         <h1>{category[0]?.toUpperCase() + category.slice(1)}</h1>
-        <p>Explore the boundaries of art and technology with Fiverr's {category} artists</p>
+        <p>Explore the boundaries of art and technology with Ruhnix's {category} artists</p>
         <div className="menu">
           <div className="left">
             <span>Budget</span>
