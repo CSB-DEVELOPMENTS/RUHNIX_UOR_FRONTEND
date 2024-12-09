@@ -1,0 +1,247 @@
+.start-selling-page {
+  font-family: Arial, sans-serif;
+  /* Hero Section */
+  /* Freelancer Showcase */
+  /* How It Works */
+  /* Promo Section */
+  /* Buyer Stories */
+  /* FAQ Section */
+  /* Final CTA */
+  /* Media Queries for Responsiveness */
+}
+.start-selling-page .hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+.start-selling-page .hero-section .hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.start-selling-page .hero-section .hero-video-container .hero-video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.start-selling-page .hero-section .hero-content {
+  z-index: 1;
+  position: relative;
+}
+.start-selling-page .hero-section .hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.start-selling-page .hero-section .hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.start-selling-page .hero-section .hero-content .cta-button {
+  background-color: #1dbf73;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.start-selling-page .hero-section .hero-content .cta-button:hover {
+  background-color: #17a360;
+}
+.start-selling-page .freelancer-showcase {
+  padding: 60px 20px;
+  text-align: center;
+}
+.start-selling-page .freelancer-showcase h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.start-selling-page .freelancer-showcase .freelancer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .start-selling-page .freelancer-showcase .freelancer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.start-selling-page .freelancer-showcase .freelancer-card {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.start-selling-page .freelancer-showcase .freelancer-card.cta {
+  background-color: #1dbf73;
+  color: white;
+  font-weight: bold;
+}
+.start-selling-page .how-it-works {
+  background-color: #f7f7f7;
+  padding: 60px 20px;
+  text-align: center;
+}
+.start-selling-page .how-it-works .steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.start-selling-page .how-it-works .steps .step {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+.start-selling-page .how-it-works .steps .step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.start-selling-page .how-it-works .steps .step p {
+  font-size: 1rem;
+}
+.start-selling-page .promo-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.start-selling-page .promo-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.start-selling-page .promo-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.start-selling-page .promo-section .cta-button {
+  background-color: #1dbf73;
+  padding: 15px 30px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.start-selling-page .buyer-stories {
+  padding: 60px 20px;
+  text-align: center;
+}
+.start-selling-page .buyer-stories .stories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.start-selling-page .buyer-stories .stories-grid .story-card {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+}
+.start-selling-page .buyer-stories .stories-grid .story-card p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.start-selling-page .buyer-stories .stories-grid .story-card h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.start-selling-page .faq-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.start-selling-page .faq-section .faq-item {
+  cursor: pointer;
+}
+.start-selling-page .faq-section .faq-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.start-selling-page .faq-section .faq-item p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.start-selling-page .final-cta {
+  background-color: #1dbf73;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.start-selling-page .final-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.start-selling-page .final-cta .cta-button {
+  background-color: white;
+  color: #1dbf73;
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .start-selling-page .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .start-selling-page .hero-content p {
+    font-size: 1.3rem;
+  }
+  .start-selling-page .freelancer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .start-selling-page .how-it-works .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .start-selling-page .promo-section h2 {
+    font-size: 1.8rem;
+  }
+  .start-selling-page .buyer-stories .stories-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .start-selling-page .hero-content h1 {
+    font-size: 2rem;
+  }
+  .start-selling-page .hero-content p {
+    font-size: 1.2rem;
+  }
+  .start-selling-page .freelancer-grid {
+    grid-template-columns: 1fr;
+  }
+  .start-selling-page .steps .step {
+    max-width: 100%;
+  }
+  .start-selling-page .promo-section h2 {
+    font-size: 1.5rem;
+  }
+  .start-selling-page .buyer-stories .stories-grid {
+    grid-template-columns: 1fr;
+  }
+  .start-selling-page .final-cta h2 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .start-selling-page .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .start-selling-page .hero-content p {
+    font-size: 1.1rem;
+  }
+  .start-selling-page .cta-button {
+    padding: 12px 24px;
+  }
+  .start-selling-page .promo-section p {
+    font-size: 1rem;
+  }
+  .start-selling-page .final-cta h2 {
+    font-size: 1.5rem;
+  }
+}/*# sourceMappingURL=StartSelling.css.map */
