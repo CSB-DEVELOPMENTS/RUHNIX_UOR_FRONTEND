@@ -59,6 +59,7 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if(currentStep !== 3) return;
     if (!formInput.description) {
       toast.error('Please provide a description.');
       return;
@@ -135,9 +136,17 @@ const Register = () => {
             <h1>Profile Details</h1>
             <label>Profile Picture</label>
             <input
+              className="file-upload"
               type="file"
+              id="fileInput"
               onChange={(event) => setImage(event.target.files[0])}
             />
+            <label htmlFor="fileInput" className="file-upload-label">
+              Upload Image
+            </label>
+
+            {image && <div className="file-name">{image.name}</div>}
+
             <label>Phone Number</label>
             <input
               name="phone"

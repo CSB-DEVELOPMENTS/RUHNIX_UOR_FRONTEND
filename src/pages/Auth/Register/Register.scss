@@ -18,7 +18,7 @@
 
     .progress {
       height: 100%;
-      background-color: #6200ee; /* Adjust this color as needed */
+      background-color: #FF7000; /* Adjust this color as needed */
       transition: width 0.3s ease;
     }
   }
@@ -37,7 +37,38 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-
+      
+      .file-upload {
+        display: none;  
+      
+        & + .file-upload-label {
+          text-align: center;
+          width: 48%;
+          align-self: center;
+          align-items: center;
+          display: inline-block;
+          background-color: #000000;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s;
+      
+          &:hover {
+            background-color: #FF7000;
+            color:#000000;
+          }
+        }
+      }
+      
+      // Optional: To style the file name display
+      .file-name {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
+      }
+      
       h1 {
         align-self: center;
         font-size: 1.8rem;
@@ -80,8 +111,9 @@
           padding: 0.8rem 1.2rem;
           border: none;
           border-radius: 0.8rem;
-          background: #6200ee;
-          color: #ffffff;
+          background: #FFFFFF;
+          color: #FF7000;
+          border: 1px solid #FF7000;
           font-weight: bold;
           cursor: pointer;
           transition: background 0.3s ease;
@@ -92,16 +124,19 @@
           }
 
           &:hover:not(:disabled) {
-            background: #4b00c3;
+            background: #FF7000;
+            color: #FFFFFF;
           }
         }
 
         .previous {
           background: #f1f1f1;
           color: #333;
+          border: 1px solid #333;
 
           &:hover:not(:disabled) {
             background: #e0e0e0;
+            color: #FF7000;
           }
         }
       }
@@ -152,7 +187,7 @@
       color: #555;
 
       a {
-        color: #6200ee;
+        color: #FF7000;
         font-weight: bold;
         text-decoration: none;
 
