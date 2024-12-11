@@ -116,14 +116,13 @@ const Navbar = () => {
       <div className="container">
         <div className="logo">
           <Link to="/" className="link">
-            <span className="text">Ruhnix</span>
+            <img src="./media/Horizontal_Logo_Dark.png" alt="logo" className="logoImage"/>
           </Link>
-          <span className="dot">....</span>
         </div>
 
         <div className="links">
           <div className="menu-links">
-            <span>Ruhnix Business</span>
+            <span>Ruhnix Pro</span>
             <span>Explore</span>
             <span>English</span>
             {!user?.isSeller && (
