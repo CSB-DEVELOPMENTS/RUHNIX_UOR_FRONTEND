@@ -12,6 +12,12 @@ const Home = () => {
   return (
     <div className="home">
       <Featured />
+      <br />
+      <br />
+      <br />
+      <h1>
+        <b>Popular Services</b>
+      </h1>
       <Slide slidesToShow={5}>
         {cards.map((card) => (
           <CategoryCard key={card.id} data={card} />
@@ -20,39 +26,60 @@ const Home = () => {
       <div className="features">
         <div className="container">
           <div className="item">
-            <h1>A whole world of freelance talent at your fingertips</h1>
-            <div className="title">
-              <img src="./media/check.png" alt="check" />
-              <h6>The best for every budget</h6>
-            </div>
-            <p>
-              Find high-quality services at every price point. No hourly rates,
-              just project-based pricing.
-            </p>
-            <div className="title">
-              <img src="./media/check.png" alt="check" />
-              <h6>Quality work done quickly</h6>
-            </div>
-            <p>
-              Find the right freelancer to begin working on your project within
-              minutes.
-            </p>
-            <div className="title">
-              <img src="./media/check.png" alt="check" />
-              <h6>Protected payments, every time</h6>
-            </div>
-            <p>
-              Always know what you'll pay upfront. Your payment isn't released
-              until you approve the work.
-            </p>
-            <div className="title">
-              <img src="./media/check.png" alt="check" />
-              <h6>24/7 support</h6>
-            </div>
-            <p>
-              Questions? Our round-the-clock support team is available to help
-              anytime, anywhere.
-            </p>
+            <h2>
+              <b>RUHNIX </b>pro
+            </h2>
+            <h1>
+              The premium <span>freelance</span> <br />
+              solution for businesses
+            </h1>
+            <table className="features-table">
+              <tr>
+                <td>
+                  <div className="title">
+                    <img src="./media/check 2.png" alt="check" />
+                    <h6>Dedicated hiring experts</h6>
+                  </div>
+                  <p>
+                    Count on an account manager to find you the right talent and
+                    see to your project's every need.
+                  </p>
+                </td>
+                <td>
+                  <div className="title">
+                    <img src="./media/check 2.png" alt="check" />
+                    <h6>Satisfaction guarantee</h6>
+                  </div>
+                  <p>
+                    Order confidently with guaranteed refunds for less than
+                    satisfactory deliveries.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div className="title">
+                    <img src="./media/check 2.png" alt="check" />
+                    <h6>Advanced management tools</h6>
+                  </div>
+                  <p>
+                    Seamlessly integrate freelancers into your team and
+                    projects.
+                  </p>
+                </td>
+                <td>
+                  <div className="title">
+                    <img src="./media/check 2.png" alt="check" />
+                    <h6>Flexible payment models</h6>
+                  </div>
+                  <p>
+                    Pay per project or opl for hourly rates to facilitate longer
+                    term collaboration.
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <button>Try Now</button>
           </div>
           <div className="item">
             <video
