@@ -91,6 +91,21 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="Success">
+        <h1>What success on RUHNIX looks like</h1>
+        <h4>
+          Vontelle Eyewear turns to RUHNIX freelancers to bring their version to
+          life.
+        </h4>
+        <div className="video">
+          <video
+            poster="https://img.freepik.com/free-photo/businesspeople-celebrating-success_1098-1996.jpg?semt=ais_hybrid"
+            src="./media/Success.mp4"
+            controls
+          ></video>
+        </div>
+      </div>
+
       {/* Fiverr Business Component */}
       <div className="features dark">
         <div className="container">
