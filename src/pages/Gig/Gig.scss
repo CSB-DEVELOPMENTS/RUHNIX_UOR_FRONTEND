@@ -286,12 +286,14 @@
     }
 
     .right-mobile {
+      display: none;
+
       button {
         margin: 20px 0;
         width: 100%;
       }
 
-      @media screen and (min-width: 901px) and (max-width: 1400px) {
+      @media screen and (min-width: 901px) {
         display: none;
       }
 
