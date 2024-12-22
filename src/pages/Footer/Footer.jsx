@@ -13,59 +13,58 @@ const Footer = () => {
         <div className="top">
           <div className="item">
             <h1>Categories</h1>
-            <span>Graphic & Design</span>
-            <span>Digital Marketing</span>
-            <span>Writing & Translation</span>
-            <span>Video & Animation</span>
-            <span>Music & Audio</span>
-            <span>Programming & Tech</span>
-            <span>Data</span>
-            <span>Business</span>
-            <span>Lifestyle</span>
-            <span>Photography</span>
-            <span>Sitemap</span>
+            <a href="#"><span>Graphic & Design</span></a>
+            <a href=""><span>Digital Marketing</span></a>
+            <a href=""><span>Writing & Translation</span></a>
+            <a href=""><span>Video & Animation</span></a>
+            <a href=""><span>Music & Audio</span></a>
+            <a href=""><span>Programming & Tech</span></a>
+            <a href=""><span>Data</span></a>
+            <a href=""><span>Business</span></a>
+            <a href=""><span>Lifestyle</span></a>
+            <a href=""><span>Photography</span></a>
+            <a href=""><span>Sitemap</span></a>
           </div>
           <div className="item">
             <h1>About</h1>
-            <span>Careers</span>
-            <span>Press & News</span>
-            <span>Partnership</span>
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
-            <span>Intellectual Property Claims</span>
-            <span>Investor Relations</span>
+            <a href=""><span>Careers</span></a>
+            <a href=""><span>Press & News</span></a>
+            <a href=""><span>Partnership</span></a>
+            <a href=""><span>Privacy Policy</span></a>
+            <a href=""><span>Terms of Service</span></a>
+            <a href=""><span>Intellectual Property Claims</span></a>
+            <a href=""><span>Investor Relations</span></a>
           </div>
           <div className="item">
             <h1>Support</h1>
-            <span>Help & Support</span>
-            <span>Trust & Safety</span>
-            <span>Selling on Ruhnix</span>
-            <span>Buying on Ruhnix</span>
+            <a href=""><span>Help & Support</span></a>
+            <a href=""><span>Trust & Safety</span></a>
+            <a href=""><span>Selling on Ruhnix</span></a>
+            <a href=""><span>Buying on Ruhnix</span></a>
           </div>
           <div className="item">
             <h1>Community</h1>
-            <span>Events</span>
-            <span>Blog</span>
-            <span>Forum</span>
-            <span>Community Standards</span>
-            <span>Podcast</span>
-            <span>Affiliats</span>
-            <span>Invite a Friend</span>
+            <a href=""><span>Events</span></a>
+            <a href=""><span>Blog</span></a>
+            <a href=""><span>Forum</span></a>
+            <a href=""><span>Community Standards</span></a>
+            <a href=""><span>Podcast</span></a>
+            <a href=""><span>Affiliats</span></a>
+            <a href=""><span>Invite a Friend</span></a>
           </div>
           <div className="item">
             <h1>More From Ruhnix</h1>
-            <span>Ruhnix Business</span>
-            <span>Ruhnix Pro</span>
-            <span>Ruhnix Studios</span>
-            <span>Ruhnix Logo Maker</span>
-            <span>Ruhnix Guild</span>
-            <span>Get Inspired</span>
-            <span>Ruhnix Select</span>
-            <span>Clear Voice</span>
-            <span>
-               Workspace</span>
-            <span>Learn</span>
-            <span>Working Not Working</span>
+            <a href=""><span>Ruhnix Business</span></a>
+            <a href=""><span>Ruhnix Pro</span></a>
+            <a href=""><span>Ruhnix Studios</span></a>
+            <a href=""><span>Ruhnix Logo Maker</span></a>
+            <a href=""><span>Ruhnix Guild</span></a>
+            <a href=""><span>Get Inspired</span></a>
+            <a href=""><span>Ruhnix Select</span></a>
+            <a href=""><span>Clear Voice</span></a>
+            <a href=""><span>Workspace</span></a>
+            <a href=""><span>Learn</span></a>
+            <a href=""><span>Working Not Working</span></a>
           </div>
         </div>
         <hr />
@@ -76,7 +75,7 @@ const Footer = () => {
           </div>
           <div className="right">
             <div className="social">
-              <img src="./media/twitter.png" alt="" />
+              <a href=""><img src="./media/twitter.png" alt="" /></a>
               <img src="./media/facebook.png" alt="" />
               <img src="./media/linkedin.png" alt="" />
               <img src="./media/pinterest.png" alt="" />
