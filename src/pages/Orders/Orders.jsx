@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosFetch } from "../../utils";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../atoms";
-import { Loader } from '../../components';
+import { Loader } from "../../components";
 import "./Orders.scss";
 
 const Orders = () => {
@@ -55,7 +55,9 @@ const Orders = () => {
   return (
     <div className="orders">
       {isLoading ? (
-        <div className="loader"> <Loader /> </div>
+        <div className="loader">
+          <Loader />
+        </div>
       ) : error ? (
         "Something went wrong!"
       ) : (
@@ -63,47 +65,43 @@ const Orders = () => {
           <div className="title">
             <h1>Orders</h1>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>{user.isSeller ? "Buyer" : "Seller"}</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Contact</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((order) => (
-                <tr key={order._id}>
-                  <td>
-                    <img className="img" src={order.image} alt="" />
-                  </td>
-                  <td>
-                    {user.isSeller
-                      ? order.buyerID.username
-                      : order.sellerID.username}
-                  </td>
-                  <td>{order.title.slice(0, 30)}...</td>
-                  <td>
+          <div className="cards">
+            {data.map((order) => (
+              <div className="card" key={order._id}>
+                <div className="card-header">
+                  <img
+                    className="card-image"
+                    src={order.image}
+                    alt={order.title}
+                  />
+                </div>
+                <div className="card-body">
+                  <h2 className="card-title">{order.title}</h2>
+                  <p className="card-price">
                     {order.price.toLocaleString("en-IN", {
                       maximumFractionDigits: 0,
                       style: "currency",
                       currency: "INR",
                     })}
-                  </td>
-                  <td>
-                    <img
-                      className="message"
-                      src="./media/message.png"
-                      alt="message"
-                      onClick={() => handleContact(order)}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </p>
+                  <p className="card-user">
+                    {user.isSeller ? "Buyer: " : "Seller: "}
+                    {user.isSeller
+                      ? order.buyerID.username
+                      : order.sellerID.username}
+                  </p>
+                </div>
+                <div className="card-footer">
+                  <button
+                    className="contact-button"
+                    onClick={() => handleContact(order)}
+                  >
+                    Contact
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
