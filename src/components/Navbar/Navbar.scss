@@ -19,7 +19,12 @@
       width: 95%;
       display: flex;
       justify-content: space-between;
-      padding: 20px 30px;
+      padding: 15px 30px;
+
+      .logoImage{
+        width: 151px;
+        height: 53px;
+      }
   
       .logo {
         font-size: 34px;
@@ -34,13 +39,13 @@
         display: flex;
         align-items: center;
         gap: 24px;
-        font-weight: 500;
+        font-weight: 700;
   
         .menu-links {
           display: flex;
           align-items: center;
           gap: 24px;
-          font-weight: 500;
+          font-weight: 700;
   
           @media screen and (max-width: 800px) {
             display: none;
@@ -135,14 +140,14 @@
         }
   
         .join-active {
-          color: #1DBF73;
+          color: #FF7000;
           font-weight: 600;
           font-size: 14px;
-          border: 1px solid #1DBF73;
+          border: 1px solid #FF7000;
   
           &:hover {
-            background-color: #1DBF73;
-            border-color: #1DBF73;
+            background-color: #FF7000;
+            border-color: #FF7000;
             color: #fff;
           }
         }

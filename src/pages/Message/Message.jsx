@@ -9,7 +9,7 @@ import { Loader } from '../../components';
 import "./Message.scss";
 
 const Message = () => {
-  const user = useRecoilValue(userState);
+  const user = useRecoilValue(userState);//first
   const { conversationID } = useParams();
 
   useEffect(() => {
