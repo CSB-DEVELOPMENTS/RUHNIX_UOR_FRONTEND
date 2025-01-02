@@ -18,7 +18,7 @@ const Reviews = ({ gigID }) => {
 
     return (
         <div className="reviews">
-            <h2>Reviews</h2>
+            <h3>Reviews</h3>
             {isLoading ? (
                 <div className='loader'><Loader size={35} /></div>
             ) : error ? (
