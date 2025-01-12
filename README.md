@@ -12,7 +12,6 @@ Make sure you have the following tools installed:
 - **Node.js**: [Download and Install](https://nodejs.org/)
 - **npm**: Comes with Node.js
 
----
 
 ## Installation and Setup
 
