@@ -20,7 +20,8 @@
             justify-content: space-between;
 
             button {
-                background-color: var(--green-color);
+                border-radius: 10px;
+                background: #00C7A2;
                 color: #fff;
                 font-weight: 500;
                 border: none;
@@ -49,7 +50,12 @@
                 }
 
                 .delete {
-                    width: 20px;
+                    border-radius: 10px;
+                    background: #FF7000;
+                    color: #fff;
+                    font-weight: 500;
+                    border: none;
+                    padding: 10px;
                     cursor: pointer; 
                 }
 
