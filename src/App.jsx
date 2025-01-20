@@ -18,6 +18,7 @@ import {
   Pay,
   Success,
   NotFound,
+  StartSelling,
 } from "./pages";
 import "./App.scss";
 
@@ -27,6 +28,7 @@ const paths = [
   { path: "/gigs", element: <Gigs /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
+  { path: "/StartSelling", element: <StartSelling /> },
   {
     path: "/orders",
     element: (

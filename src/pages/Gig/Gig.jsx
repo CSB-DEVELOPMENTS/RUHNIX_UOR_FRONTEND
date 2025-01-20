@@ -82,7 +82,7 @@ const Gig = () => {
                       ))
                     }
                   </Slider>
-
+                  <div className="arrowBtn">
                     <ButtonBack>
                       <PrevArrow />
                     </ButtonBack>
@@ -90,7 +90,7 @@ const Gig = () => {
                     <ButtonNext>
                       <NextArrow />
                     </ButtonNext>
-
+                  </div>
                 </CarouselProvider>
 
                 <div className="right-mobile">
@@ -188,7 +188,9 @@ const Gig = () => {
                     </p>
                   </div>
                 </div>
-                <Reviews gigID={_id} />
+                <div className="review-border">
+                  <Reviews gigID={_id} />
+                </div>
               </div>
               <div className="right">
                 <div className="price">

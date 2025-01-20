@@ -86,7 +86,7 @@ const MyGigs = () => {
                         })}</td>
                         <td>{gig.sales}</td>
                         <td>
-                          <img className='delete' src="./media/delete.png" alt="delete" onClick={() => handleGigDelete(gig)} />
+                          <button className='delete' onClick={() => handleGigDelete(gig)} >Delete</button> {/*Replaced delete image with a button*/}
                         </td>
                       </tr>
                     ))

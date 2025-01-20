@@ -1,10 +1,33 @@
-* {
-    .link {
-      text-decoration: none;
-      color: inherit;
-    }
-  }
+@font-face {
+  font-family: 'Seravek';
+  src: url('/fonts/Seravek.ttf') format('truetype'),
+       url('/fonts/Seravek.woff') format('woff'),
+       url('/fonts/Seravek.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
-  body {
-    overflow-x: hidden;
+@font-face {
+  font-family: 'Seravek';
+  src: url('/fonts/Seravek-Bold.ttf') format('truetype'),
+       url('/fonts/Seravek-Bold.woff') format('woff'),
+       url('/fonts/Seravek-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'Seravek', sans-serif;
+}
+
+* {
+  font-family: inherit;
+  .link {
+    text-decoration: none;
+    color: inherit;
   }
+}
+
+body {
+  overflow-x: hidden;
+}
