@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, useLocation } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { RecoilRoot } from "recoil";
@@ -21,6 +21,7 @@ import {
   StartSelling,
 } from "./pages";
 import "./App.scss";
+import { useEffect } from "react";
 
 const paths = [
   { path: "/", element: <Home /> },
@@ -90,7 +91,14 @@ const paths = [
 
 function App() {
   const queryClient = new QueryClient();
+  
   const Layout = () => {
+    const { pathname } = useLocation();
+    
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
       <QueryClientProvider client={queryClient}>
         <Navbar />
@@ -99,6 +107,7 @@ function App() {
       </QueryClientProvider>
     );
   };
+
   const router = createBrowserRouter([
     {
       path: "/",

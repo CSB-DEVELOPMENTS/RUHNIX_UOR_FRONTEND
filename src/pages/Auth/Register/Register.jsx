@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { axiosFetch, generateImageURL } from '../../../utils';
 import { Loader } from '../../../components';
 import './Register.scss';
+import { FaUser, FaEnvelope, FaLock, FaPhone, FaFileAlt, FaImage } from 'react-icons/fa';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -87,111 +88,162 @@ const Register = () => {
   };
 
   return (
-    <div className="register">{loading ? <Loader size={32} /> : (
-      <>
-      
-      <form onSubmit={handleSubmit}>
-        {/* Progress Bar */}
-      <div className="progress-bar">
-      <div className="progress" style={{ width: `${progressPercentage}%` }}></div>
-    </div>
-        {currentStep === 1 && (
-          <div className="step step-1">
-            <h1>Create a new account</h1>
-            <label>Email</label>
-            <input
-              name="email"
-              type="email"
-              value={formInput.email}
-              placeholder="Your Email"
-              onChange={handleChange}
-            />
-            <label>Username</label>
-            <input
-              name="username"
-              type="text"
-              value={formInput.username}
-              placeholder="Your Username"
-              onChange={handleChange}
-            />
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              value={formInput.password}
-              onChange={handleChange}
-            />
-            <div className="button-group">{formLoading ? <Loader size={20} /> : (
-              <button type="button" onClick={handleNext}>Next</button>
+    <div className="register-container">
+      <div className="register-sidebar">
+        <div className="brand">
+          <h2>RUHNIX</h2>
+          <p>Your Gateway to Professional Services</p>
+        </div>
+        <div className="steps-progress">
+          <div className="steps">
+            {[1, 2, 3].map((step) => (
+              <div key={step} className={`step-indicator ${currentStep >= step ? 'active' : ''}`}>
+                <div className="step-number">{step}</div>
+                <span>{step === 1 ? 'Account' : step === 2 ? 'Profile' : 'Details'}</span>
+              </div>
+            ))}
+          </div>
+          <div className="progress-bar">
+            <div className="progress" style={{ width: `${progressPercentage}%` }}></div>
+          </div>
+        </div>
+        <div className="welcome-text">
+          <h3>Join Our Community!</h3>
+          <p>Create your account and start exploring professional services tailored for you</p>
+        </div>
+      </div>
+
+      <div className="register-form">
+        <div className="form-wrapper">
+          {loading ? <Loader size={32} /> : (
+            <form onSubmit={handleSubmit}>
+              {currentStep === 1 && (
+                <div className="step step-1">
+                  <div className="form-header">
+                    <h1>Create Account</h1>
+                    <p className="subtitle">Already have an account? <Link to="/login">Sign in</Link></p>
+                  </div>
+
+                  <div className="input-group">
+                    <FaEnvelope className="input-icon" />
+                    <input
+                      name="email"
+                      type="email"
+                      value={formInput.email}
+                      placeholder="Your Email"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="input-group">
+                    <FaUser className="input-icon" />
+                    <input
+                      name="username"
+                      type="text"
+                      value={formInput.username}
+                      placeholder="Choose Username"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="input-group">
+                    <FaLock className="input-icon" />
+                    <input
+                      name="password"
+                      type="password"
+                      placeholder="Create Password"
+                      value={formInput.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="button-group">
+                    {formLoading ? <Loader size={20} /> : (
+                      <button type="button" onClick={handleNext}>Continue</button>
+                    )}
+                  </div>
+                </div>
               )}
-            </div>
-            <p>
-              Already have an account? <Link to='/login'>Sign in</Link>
-            </p>
-          </div>
-        )}
 
-        {currentStep === 2 && (
-          <div className="step step-2">
-            <h1>Profile Details</h1>
-            <label>Profile Picture</label>
-            <input
-              className="file-upload"
-              type="file"
-              id="fileInput"
-              onChange={(event) => setImage(event.target.files[0])}
-            />
-            <label htmlFor="fileInput" className="file-upload-label">
-              Upload Image
-            </label>
+              {currentStep === 2 && (
+                <div className="step step-2">
+                  <div className="form-header">
+                    <h1>Profile Setup</h1>
+                    <p className="subtitle">Let's set up your profile</p>
+                  </div>
 
-            {image && <div className="file-name">{image.name}</div>}
+                  <div className="file-upload-group">
+                    <label htmlFor="fileInput" className="file-upload-label">
+                      <FaImage className="upload-icon" />
+                      <span>Upload Profile Picture</span>
+                    </label>
+                    <input
+                      className="file-upload"
+                      type="file"
+                      id="fileInput"
+                      onChange={(event) => setImage(event.target.files[0])}
+                    />
+                    {image && <div className="file-name">{image.name}</div>}
+                  </div>
 
-            <label>Phone Number</label>
-            <input
-              name="phone"
-              type="text"
-              value={formInput.phone}
-              placeholder="+1 1234 567 890"
-              onChange={handleChange}
-            />
-            <div className="button-group">
-              <button type="button" className="previous" onClick={handlePrevious}>Previous</button>
-              <button type="button" onClick={handleNext}>Next</button>
-            </div>
-          </div>
-        )}
+                  <div className="input-group">
+                    <FaPhone className="input-icon" />
+                    <input
+                      name="phone"
+                      type="text"
+                      value={formInput.phone}
+                      placeholder="+1 (234) 567-8900"
+                      onChange={handleChange}
+                    />
+                  </div>
 
-        {currentStep === 3 && (
-          <div className="step step-3">
-            <h1>Seller Information</h1>
-            <label>Activate the seller account</label>
-            <label className="switch">
-              <input
-                type="checkbox"
-                name="isSeller"
-                checked={formInput.isSeller}
-                onChange={handleChange}
-              />
-              <span className="slider round"></span>
-            </label>
-            <label>Description</label>
-            <textarea
-              placeholder="A short description of yourself"
-              name="description"
-              value={formInput.description}
-              cols="30"
-              rows="10"
-              onChange={handleChange}
-            ></textarea>
-            <div className="button-group">
-              <button type="button" className="previous" onClick={handlePrevious}>Previous</button>
-              <button type="submit">Finish</button>
-            </div>
-          </div>
-        )}
-      </form></>)}
-      
+                  <div className="button-group">
+                    <button type="button" className="previous" onClick={handlePrevious}>Back</button>
+                    <button type="button" onClick={handleNext}>Continue</button>
+                  </div>
+                </div>
+              )}
+
+              {currentStep === 3 && (
+                <div className="step step-3">
+                  <div className="form-header">
+                    <h1>Final Details</h1>
+                    <p className="subtitle">Complete your profile setup</p>
+                  </div>
+
+                  <div className="switch-group">
+                    <label>Activate Seller Account</label>
+                    <label className="switch">
+                      <input
+                        type="checkbox"
+                        name="isSeller"
+                        checked={formInput.isSeller}
+                        onChange={handleChange}
+                      />
+                      <span className="slider"></span>
+                    </label>
+                  </div>
+
+                  <div className="input-group">
+                    <FaFileAlt className="input-icon textarea-icon" />
+                    <textarea
+                      placeholder="Tell us about yourself..."
+                      name="description"
+                      value={formInput.description}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+
+                  <div className="button-group">
+                    <button type="button" className="previous" onClick={handlePrevious}>Back</button>
+                    <button type="submit">Create Account</button>
+                  </div>
+                </div>
+              )}
+            </form>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

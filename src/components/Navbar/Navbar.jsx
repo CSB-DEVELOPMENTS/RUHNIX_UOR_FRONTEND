@@ -1,7 +1,25 @@
 import Slider from "react-slick";
 import { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faChevronRight, 
+  faChevronLeft,
+  faGlobe,
+  faCaretDown,
+  faMessage,
+  faGear,
+  faCreditCard,
+  faQuestionCircle,
+  faUsers,
+  faClock,
+  faCoins,
+  faRightFromBracket,
+  faCircleChevronLeft,
+  faCircleChevronRight,
+  faAngleLeft,
+  faAngleRight
+} from '@fortawesome/free-solid-svg-icons';
 import { axiosFetch } from "../../utils";
 import { useRecoilState } from "recoil";
 import { userState } from "../../atoms";
@@ -76,8 +94,20 @@ const Navbar = () => {
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 2,
-    prevArrow: <GrFormPrevious />,
-    nextArrow: <GrFormNext />,
+    prevArrow: (
+      <button className="slick-prev">
+        <div className="custom-arrow">
+          <FontAwesomeIcon icon={faAngleLeft} className="fa-icon" />
+        </div>
+      </button>
+    ),
+    nextArrow: (
+      <button className="slick-next">
+        <div className="custom-arrow">
+          <FontAwesomeIcon icon={faAngleRight} className="fa-icon" />
+        </div>
+      </button>
+    ),
     swipeToSlide: true,
     responsive: [
       {
@@ -124,7 +154,10 @@ const Navbar = () => {
           <div className="menu-links">
             <span>Ruhnix Pro</span>
             <span>Explore</span>
-            <span>English</span>
+            <span>
+              English
+              <FontAwesomeIcon icon={faGlobe} className="fa-icon globe-icon" size="sm" />
+            </span>
             {!user?.isSeller && (
               <Link to="/StartSelling" className="link">
                 <span>Become a Seller</span>
@@ -165,6 +198,7 @@ const Navbar = () => {
                         Profile
                       </Link>
                       <Link className="link" to="/messages">
+                        <FontAwesomeIcon icon={faMessage} className="fa-icon menu-icon" />
                         Messages
                       </Link>
                       <Link className="link" to="/orders">
@@ -187,31 +221,41 @@ const Navbar = () => {
                         Become a Seller
                       </Link>
                       <Link className="link" to="/settings">
+                        <FontAwesomeIcon icon={faGear} className="fa-icon menu-icon" />
                         Settings
                       </Link>
                       <Link className="link" to="/billing">
+                        <FontAwesomeIcon icon={faCreditCard} className="fa-icon menu-icon" />
                         Billing and payments
                       </Link>
                       <div className="link language-currency">
-                        <span>English</span>
+                        <span>
+                          <FontAwesomeIcon icon={faGlobe} className="fa-icon" />
+                          English
+                        </span>
                         <span>US$ USD</span>
                       </div>
                       <Link className="link" to="/help">
+                        <FontAwesomeIcon icon={faQuestionCircle} className="fa-icon menu-icon" />
                         Help & support
                       </Link>
                       <hr />
                       <div className="exclusive-features">
                         <Link className="link" to="/invite-team">
+                          <FontAwesomeIcon icon={faUsers} className="fa-icon menu-icon" />
                           Invite your team
                         </Link>
                         <Link className="link" to="/hire-hourly">
+                          <FontAwesomeIcon icon={faClock} className="fa-icon menu-icon" />
                           Hire on an hourly basis
                         </Link>
                         <Link className="link" to="/fiverr-credits">
+                          <FontAwesomeIcon icon={faCoins} className="fa-icon menu-icon" />
                           Earn Fiverr credits
                         </Link>
                       </div>
                       <Link className="link" to="/" onClick={handleLogout}>
+                        <FontAwesomeIcon icon={faRightFromBracket} className="fa-icon menu-icon" />
                         Logout
                       </Link>
                     </div>

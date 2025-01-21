@@ -1,119 +1,179 @@
 .footer {
-    
     display: flex;
     justify-content: center;
     color: #999;
     margin: 50px 0;
-
-    img {
-        width: 24px;
-        height: 24px;
-    }
-
+  
     .container {
-        width: 95%;
-        margin: auto;
-
-        .top {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 50px 0;
-
-            .item {
-                width: 180px;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
+      width: 95%;
+      margin: auto;
+  
+      .top {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 50px 0;
+  
+        .item {
+          width: 180px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+  
+          h1 {
+            font-family: Seravek;
+            font-size: 18px;
+            color: black;
+          }
+  
+          a {
+            text-decoration: none;
+          }
+  
+          span {
+            font-family: Seravek;
+            font-weight: 400;
+            color: #74767e;
+  
+            &:hover {
+              text-decoration: underline;
+              text-decoration-color: #74767e;
+            }
+          }
+        }
+  
+        @media screen and (max-width: 900px) {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
+      }
+  
+      hr {
+        width: 100%;
+        border: .5px solid rgb(228, 227, 227);
+      }
+  
+      .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+  
+        .left {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+  
+          h2 {
+            font-family: Seravek;
+            font-weight: bold;
+            color: #404145;
+          }
+  
+          span {
+            font-family: Seravek;
+            font-size: 13px;
+            color: #74767e;
+          }
+  
+          .csb-social {
+            margin-top: 20px;
+            
+            h3 {
+              font-size: 16px;
+              color: #666;
+              margin-bottom: 10px;
+            }
+  
+            .social-icons {
+              display: flex;
+              gap: 15px;
+              
+              .icon {
+                font-size: 18px;
+                color: #666;
+                transition: color 0.3s ease;
                 
-
-                h1 {
-                    font-family: Seravek;
-                    font-size: 18px;
-                    color: black;
+                &:hover {
+                  color: #1dbf73;
                 }
-
-                a{
-                    text-decoration: none;
-                }
-                span {
-                    font-family: Seravek;
-                    font-weight: 400;
-                    color: #74767e;
-                    
-                    &:hover{
-                        text-decoration: underline;
-                        text-decoration-color: #74767e;
-                    }
-                }
-
+              }
             }
-
-            @media screen and (max-width: 900px) {
-                justify-content: flex-start;
-                flex-wrap: wrap;
+          }
+        }
+  
+        .right {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 30px;
+  
+          .social {
+            display: flex;
+            gap: 24px;
+  
+            a {
+              color: #74767e;
+              text-decoration: none;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              background: transparent;
+              border: none;
+              padding: 0;
+              
+              .icon {
+                font-size: 20px;
+                transition: all 0.3s ease;
+                background: transparent;
+                border: none;
+                outline: none;
+              }
+  
+              &:hover {
+                color: #1dbf73;
+                
+                .icon {
+                  transform: translateY(-2px);
+                }
+              }
             }
-        }
-
-        hr {
-            width: 100%;
-            border: .5px solid rgb(228, 227, 227);
-        }
-
-        .bottom {
+          }
+  
+          .link {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 20px 0;
-            
-            .left {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                
-                span {
-                    font-family: Seravek;
-                    font-size: 13px;
-                    
-                }
+            gap: 8px;
+            color: #74767e;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: transparent;
+            border: none;
+            padding: 0;
+  
+            .icon {
+              font-size: 15px;
+              background: transparent;
+              border: none;
+              outline: none;
             }
-            .right {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                gap: 30px;
-
-                .social {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    gap: 20px;
-
-                    img{
-                        &:hover{
-                            transform: scale(1.2); /* Enlarge the image */
-                            filter: brightness(0.2); /* Brighten the image */
-                        }
-                    }
-                }
-
-                .link {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    
-                    &:hover{
-                        transform: scale(1.2); /* Enlarge the image */
-                        filter: brightness(0.2); /* Brighten the image */
-                    }
-                }
+  
+            span {
+              font-size: 14px;
             }
-
-            @media screen and (max-width: 900px) {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
+  
+            &:hover {
+              color: #1dbf73;
+              transform: translateY(-2px);
             }
+          }
         }
+  
+        @media screen and (max-width: 900px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+      }
     }
-}
+  }
