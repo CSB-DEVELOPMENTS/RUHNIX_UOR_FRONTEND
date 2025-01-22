@@ -19,9 +19,13 @@ import {
   Success,
   NotFound,
   StartSelling,
+  Profile,
 } from "./pages";
 import "./App.scss";
 import { useEffect } from "react";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const paths = [
   { path: "/", element: <Home /> },
@@ -86,6 +90,15 @@ const paths = [
       </PrivateRoute>
     ),
   },
+  {
+    path: "/profile",
+    element: (
+      <PrivateRoute>
+        <Profile />
+      </PrivateRoute>
+    ),
+  },
+  
   { path: "*", element: <NotFound /> },
 ];
 
@@ -117,12 +130,12 @@ function App() {
   ]);
 
   return (
-    <div className="App">
+    <Provider store={store}>
       <RecoilRoot>
         <RouterProvider router={router} />
         <Toaster />
       </RecoilRoot>
-    </div>
+    </Provider>
   );
 }
 

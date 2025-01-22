@@ -18,7 +18,14 @@ import {
   faCircleChevronLeft,
   faCircleChevronRight,
   faAngleLeft,
-  faAngleRight
+  faAngleRight,
+  faUser,
+  faListCheck,
+  faUserPlus,
+  faBriefcase,
+  faPlus,
+  faStore,
+  faDollarSign
 } from '@fortawesome/free-solid-svg-icons';
 import { axiosFetch } from "../../utils";
 import { useRecoilState } from "recoil";
@@ -55,17 +62,6 @@ const Navbar = () => {
     })();
   }, []);
 
-  const isActive = () => {
-    window.scrollY > 0 ? setShowMenu(true) : setShowMenu(false);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", isActive);
-    return () => {
-      window.removeEventListener("scroll", isActive);
-    };
-  }, []);
-
   // Function to detect clicks outside the panel
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -77,6 +73,18 @@ const Navbar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Keep the scroll detection for menu, but remove color change
+  const isActive = () => {
+    window.scrollY > 0 ? setShowMenu(true) : setShowMenu(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
     };
   }, []);
 
@@ -142,7 +150,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={showMenu || pathname !== "/" ? "navbar active" : "navbar"}>
+    <nav className="navbar active">
       <div className="container">
         <div className="logo">
           <Link to="/" className="link">
@@ -194,53 +202,72 @@ const Navbar = () => {
                   <span>{user?.username}</span>
                   {showPanel && (
                     <div className="options">
-                      <Link className="link" to="/profile">
-                        Profile
-                      </Link>
-                      <Link className="link" to="/messages">
-                        <FontAwesomeIcon icon={faMessage} className="fa-icon menu-icon" />
-                        Messages
-                      </Link>
-                      <Link className="link" to="/orders">
-                        Orders
-                      </Link>
-                      <Link className="link" to="/refer-a-friend">
-                        Refer a Friend
-                      </Link>
-                      {user?.isSeller && (
-                        <>
-                          <Link className="link" to="/my-gigs">
-                            Gigs
-                          </Link>
-                          <Link className="link" to="/organize">
-                            Add New Gig
-                          </Link>
-                        </>
-                      )}
-                      <Link className="link" to="/become-a-seller">
-                        Become a Seller
-                      </Link>
-                      <Link className="link" to="/settings">
-                        <FontAwesomeIcon icon={faGear} className="fa-icon menu-icon" />
-                        Settings
-                      </Link>
-                      <Link className="link" to="/billing">
-                        <FontAwesomeIcon icon={faCreditCard} className="fa-icon menu-icon" />
-                        Billing and payments
-                      </Link>
-                      <div className="link language-currency">
-                        <span>
-                          <FontAwesomeIcon icon={faGlobe} className="fa-icon" />
-                          English
-                        </span>
-                        <span>US$ USD</span>
+                      {/* User Section */}
+                      <div className="menu-section">
+                        <Link className="link" to="/profile">
+                          <FontAwesomeIcon icon={faUser} className="fa-icon menu-icon" />
+                          Profile
+                        </Link>
+                        <Link className="link" to="/messages">
+                          <FontAwesomeIcon icon={faMessage} className="fa-icon menu-icon" />
+                          Messages
+                        </Link>
+                        <Link className="link" to="/orders">
+                          <FontAwesomeIcon icon={faListCheck} className="fa-icon menu-icon" />
+                          Orders
+                        </Link>
                       </div>
-                      <Link className="link" to="/help">
-                        <FontAwesomeIcon icon={faQuestionCircle} className="fa-icon menu-icon" />
-                        Help & support
-                      </Link>
+
                       <hr />
-                      <div className="exclusive-features">
+
+                      {/* Business Section */}
+                      <div className="menu-section">
+                        <Link className="link" to="/refer-a-friend">
+                          <FontAwesomeIcon icon={faUserPlus} className="fa-icon menu-icon" />
+                          Refer a Friend
+                        </Link>
+                        {user?.isSeller ? (
+                          <>
+                            <Link className="link" to="/my-gigs">
+                              <FontAwesomeIcon icon={faBriefcase} className="fa-icon menu-icon" />
+                              My Gigs
+                            </Link>
+                            <Link className="link" to="/organize">
+                              <FontAwesomeIcon icon={faPlus} className="fa-icon menu-icon" />
+                              Add New Gig
+                            </Link>
+                          </>
+                        ) : (
+                          <Link className="link" to="/become-a-seller">
+                            <FontAwesomeIcon icon={faStore} className="fa-icon menu-icon" />
+                            Become a Seller
+                          </Link>
+                        )}
+                      </div>
+
+                      <hr />
+
+                      {/* Settings Section */}
+                      <div className="menu-section">
+                        <Link className="link" to="/settings">
+                          <FontAwesomeIcon icon={faGear} className="fa-icon menu-icon" />
+                          Settings
+                        </Link>
+                        <Link className="link" to="/billing">
+                          <FontAwesomeIcon icon={faCreditCard} className="fa-icon menu-icon" />
+                          Billing and Payments
+                        </Link>
+                        <Link className="link" to="/help">
+                          <FontAwesomeIcon icon={faQuestionCircle} className="fa-icon menu-icon" />
+                          Help & Support
+                        </Link>
+                      </div>
+
+                      <hr />
+
+                      {/* Premium Features Section */}
+                      <div className="menu-section premium-features">
+                        <h4 className="section-title">Premium Features</h4>
                         <Link className="link" to="/invite-team">
                           <FontAwesomeIcon icon={faUsers} className="fa-icon menu-icon" />
                           Invite your team
@@ -251,13 +278,19 @@ const Navbar = () => {
                         </Link>
                         <Link className="link" to="/fiverr-credits">
                           <FontAwesomeIcon icon={faCoins} className="fa-icon menu-icon" />
-                          Earn Fiverr credits
+                          Earn Ruhnix credits
                         </Link>
                       </div>
-                      <Link className="link" to="/" onClick={handleLogout}>
-                        <FontAwesomeIcon icon={faRightFromBracket} className="fa-icon menu-icon" />
-                        Logout
-                      </Link>
+
+                      <hr />
+
+                      {/* Logout Section */}
+                      <div className="menu-section">
+                        <Link className="link logout" to="/" onClick={handleLogout}>
+                          <FontAwesomeIcon icon={faRightFromBracket} className="fa-icon menu-icon" />
+                          Logout
+                        </Link>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -266,20 +299,18 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {(showMenu || pathname !== "/") && (
-        <>
-          <hr />
-          <Slider className="menu" {...settings}>
-            {menuLinks.map(({ path, name }) => (
-              <div key={name} className="menu-item">
-                <Link className="link" to={path}>
-                  {name}
-                </Link>
-              </div>
-            ))}
-          </Slider>
-        </>
-      )}
+      <hr className={showMenu || pathname !== "/" ? "show" : ""} />
+      <div className={`menu ${showMenu || pathname !== "/" ? "show" : ""}`}>
+        <Slider {...settings}>
+          {menuLinks.map(({ path, name }) => (
+            <div key={name} className="menu-item">
+              <Link className="link" to={path}>
+                {name}
+              </Link>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </nav>
   );
 };

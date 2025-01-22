@@ -92,7 +92,7 @@ const Footer = () => {
             <div className="csb-social">
               <h3>&nbsp;FOLLOW CSB DEVELOPMENTS (PVT) LTD.</h3>
               <div className="social-icons">
-                <a href="https://csbodima.lk" target="_blank" rel="noopener noreferrer">
+                <a href="https://csbodima.lk/csbd-projects/ruhnix_info/index.html" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faGlobe} className="icon" />
                 </a>
                 <a href="https://x.com/CSB_DEV" target="_blank" rel="noopener noreferrer">
