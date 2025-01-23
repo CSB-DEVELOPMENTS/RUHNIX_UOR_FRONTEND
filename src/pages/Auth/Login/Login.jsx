@@ -1,9 +1,10 @@
 import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { axiosFetch } from '../../../utils';
 import { useRecoilState } from 'recoil';
 import { userState } from '../../../atoms';
+import { FaUser, FaLock } from 'react-icons/fa';
 import './Login.scss';
 
 const initialState = {
@@ -64,17 +65,53 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
-      <form action="" onSubmit={handleFormSubmit}>
-        <h1>Sign in</h1>
-        <label htmlFor="">Username</label>
-        <input name='username' placeholder='johndoe' onChange={handleFormInput} />
+    <div className='login-container'>
+      <div className='login-form'>
+        <div className="form-wrapper">
+          <form onSubmit={handleFormSubmit}>
+            <div className="form-header">
+              <h1>Sign in</h1>
+              <p className="subtitle">Don't have an account? <Link to="/register">Register here</Link></p>
+            </div>
+            
+            <div className="input-group">
+              <input 
+                name='username' 
+                placeholder='Enter your username'
+                onChange={handleFormInput}
+              />
+              <FaUser className="input-icon" />
+            </div>
 
-        <label htmlFor="">Password</label>
-        <input name='password' type='password' placeholder='password' onChange={handleFormInput} />
-        <button disabled={loading} type='submit'>{ loading ? 'Loading' : 'Login' }</button>
-        <span>{error && error}</span>
-      </form>
+            <div className="input-group">
+              <input 
+                name='password' 
+                type='password' 
+                placeholder='Enter your password'
+                onChange={handleFormInput}
+              />
+              <FaLock className="input-icon" />
+            </div>
+
+            <button disabled={loading} type='submit'>
+              {loading ? 'Signing in...' : 'Sign in'}
+            </button>
+            
+            {error && <span className="error">{error}</span>}
+          </form>
+        </div>
+      </div>
+
+      <div className="login-sidebar">
+        <div className="brand">
+          <h2>RUHNIX</h2>
+          <p>Your Gateway to Professional Services</p>
+        </div>
+        <div className="welcome-text">
+          <h3>Welcome Back!</h3>
+          <p>Sign in to access your account and explore our services</p>
+        </div>
+      </div>
     </div>
   )
 }

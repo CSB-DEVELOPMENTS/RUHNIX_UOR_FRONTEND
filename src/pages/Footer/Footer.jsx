@@ -1,5 +1,20 @@
 import { useEffect } from 'react';
 import './Footer.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faXTwitter,
+  faFacebookF, 
+  faLinkedinIn, 
+  faYoutube,
+  faGithub,
+  faTiktok,
+  faDiscord
+} from '@fortawesome/free-brands-svg-icons';
+import { 
+  faGlobe, 
+  faDollarSign, 
+  faUniversalAccess 
+} from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
 
@@ -70,28 +85,67 @@ const Footer = () => {
         <hr />
         <div className="bottom">
           <div className="left">
-            <h2>Ruhnix</h2>
-            <span>© Ruhnix International Ltd. {new Date().getFullYear()}</span>
+            <h2>RUHNIX</h2>
+            <span>© CSB DEVELOPMENTS (PVT) LTD. {new Date().getFullYear()}</span>
+            
+            {/* CSB Developments Social Links */}
+            <div className="csb-social">
+              <h3>&nbsp;FOLLOW CSB DEVELOPMENTS (PVT) LTD.</h3>
+              <div className="social-icons">
+                <a href="https://csbodima.lk/csbd-projects/ruhnix_info/index.html" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faGlobe} className="icon" />
+                </a>
+                <a href="https://x.com/CSB_DEV" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faXTwitter} className="icon" />
+                </a>
+                <a href="https://www.facebook.com/csb.developments" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faFacebookF} className="icon" />
+                </a>
+                <a href="https://www.youtube.com/@CSB.DEVELOPMENTS" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faYoutube} className="icon" />
+                </a>
+                <a href="https://tiktok.com/@csb.developments" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faTiktok} className="icon" />
+                </a>
+                <a href="https://github.com/CSB-DEVELOPMENTS" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faGithub} className="icon" />
+                </a>
+                <a href="https://linkedin.com/company/csb_developments" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
+                </a>
+              </div>
+            </div>
           </div>
           <div className="right">
+            {/* RUHNIX Social Links */}
             <div className="social">
-              <a href=""><img src="./media/twitter.png" alt="" /></a>
-              <img src="./media/facebook.png" alt="" />
-              <img src="./media/linkedin.png" alt="" />
-              <img src="./media/pinterest.png" alt="" />
-              <img src="./media/instagram.png" alt="" />
+              <a href="https://facebook.com/ruhnix_uor" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebookF} className="icon" />
+              </a>
+              <a href="https://youtube.com/ruhnix_uor" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faYoutube} className="icon" />
+              </a>
+              <a href="https://linkedin.com/company/ruhnix_uor" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
+              </a>
+              <a href="https://tiktok.com/@ruhnix_uor" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faTiktok} className="icon" />
+              </a>
+              <a href="https://discord.gg/ruhnix_uor" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faDiscord} className="icon" />
+              </a>
             </div>
             <div className="link">
-              <img src="./media/language.png" alt="" />
+              <FontAwesomeIcon icon={faGlobe} className="icon" />
               <span>English</span>
             </div>
             <div className="link">
-              <img src="./media/coin.png" alt="" />
+              <FontAwesomeIcon icon={faDollarSign} className="icon" />
               <span>USD</span>
             </div>
             <div className="link">
-              <img src="./media/accessibility.png" alt="" />
-              <span>USD</span>
+              <FontAwesomeIcon icon={faUniversalAccess} className="icon" />
+              <span>Accessibility</span>
             </div>
           </div>
         </div>

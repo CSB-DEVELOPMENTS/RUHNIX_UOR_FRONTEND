@@ -5,6 +5,7 @@
        url('/fonts/Seravek.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -14,20 +15,93 @@
        url('/fonts/Seravek-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
-  font-family: 'Seravek', sans-serif;
+  font-family: 'Seravek', sans-serif !important;
+}
+
+html, 
+body {
+  font-family: 'Seravek', sans-serif !important;
 }
 
 * {
-  font-family: inherit;
+  font-family: 'Seravek', sans-serif !important;
+  
   .link {
     text-decoration: none;
     color: inherit;
   }
 }
 
+// Target common HTML elements explicitly
+h1, h2, h3, h4, h5, h6,
+p, span, div, button, input, textarea, select, 
+a, li, td, th {
+  font-family: 'Seravek', sans-serif !important;
+}
+
 body {
   overflow-x: hidden;
+}
+
+// Add this to ensure consistent icon rendering across the app
+.MuiSvgIcon-root {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  background: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  fill: currentColor !important;
+  
+  &:focus,
+  &:active {
+    outline: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Update Font Awesome icon global styles
+.fa-icon,
+.input-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  
+  &::before {
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Remove any unwanted backgrounds from icons
+svg {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// Reset default icon styles globally
+.icon {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 }
